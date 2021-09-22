@@ -13,7 +13,14 @@ class TbIjin extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('tb_ijin', function (Blueprint $table) {
+            $table->increments('id')->unsigned();
+            $table->integer('id_karyawan');
+            $table->dateTime('date_ijin');
+            $table->dateTime('start_ijin');
+            $table->integer('is_kategori'); //1 =sakit, 2=cuti
+            $table->timestamps();
+        });
     }
 
     /**

@@ -13,7 +13,12 @@ class TbSettings extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('tb_settings', function (Blueprint $table) {
+            $table->increments('id')->unsigned();
+            $table->text('setting_name');
+            $table->text('setting_value');
+            $table->timestamps();
+        });
     }
 
     /**

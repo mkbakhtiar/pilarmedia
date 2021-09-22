@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'LoginController@index')->middleware('cekstatus');
+Route::get('/daftar', 'RegisterController@index')->middleware('cekstatus');
+Route::post('/log/rg', 'RegisterController@store')->middleware('cekstatus');
+Route::post('/log/lg', 'LoginController@login')->middleware('cekstatus');
+
+Route::get('/dashboard', 'DashboardController@index');

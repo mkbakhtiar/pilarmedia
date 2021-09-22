@@ -13,7 +13,14 @@ class TbUser extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('tb_user', function (Blueprint $table) {
+            $table->increments('id')->unsigned();
+            $table->text('nama');
+            $table->integer('user_akses'); //1 = admin, 2 = karyawan 3 = manajer
+            $table->text('username');
+            $table->text('password');
+            $table->timestamps();
+        });
     }
 
     /**
