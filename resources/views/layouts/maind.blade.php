@@ -55,12 +55,6 @@
                 <span class="nav-link-text">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/f/ijin/list">
-                <i class="ni ni-planet text-orange"></i>
-                <span class="nav-link-text">Form Ijin</span>
-              </a>
-            </li>
           </ul>
         </div>
       </div>
@@ -119,10 +113,6 @@
                     <div class="dropdown-header noti-title">
                     <h6 class="text-overflow m-0">Welcome!</h6>
                     </div>
-                    <a href="/profil" class="dropdown-item">
-                    <i class="ni ni-single-02"></i>
-                    <span>My profile</span>
-                    </a>
 
                     <div class="dropdown-divider"></div>
                     <a href="/log/out" class="dropdown-item">

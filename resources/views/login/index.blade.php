@@ -6,8 +6,8 @@
       <div class="header-body text-center mb-7">
         <div class="row justify-content-center">
           <div class="col-xl-5 col-lg-6 col-md-8 px-5">
-            <h1 class="text-white">Selamat Datang Karyawan!</h1>
-            <p class="text-lead text-white">Silahkan Login Untuk Absen</p>
+            <h1 class="text-white">Selamat Datang!</h1>
+            <p class="text-lead text-white">Silahkan Login</p>
           </div>
         </div>
       </div>

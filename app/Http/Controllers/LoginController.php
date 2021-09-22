@@ -20,7 +20,13 @@ class LoginController extends Controller
             if(Hash::check($request->password, $sU->password)){
                 Session::put('idUser', $sU->id);
                 Session::put('nameUser', $sU->nama);
-		        return redirect('/dashboard');
+
+                $user = \App\UserModel::where('id', $sU->id)->first();
+                if ($user->user_akses == '2') {
+                    return redirect('/dashboard');
+                } elseif ($user->user_akses == '3') {
+                    return redirect('/d-manajer');
+                }
             }else{
                 Session::flash('gagal','Gagal, Password Tidak Sesuai');
                 return redirect('/');
@@ -29,6 +35,12 @@ class LoginController extends Controller
             Session::flash('gagal','Gagal, Username Tidak Terdaftar');
 		    return redirect('/');
         }
+    }
+
+    public function logout(){
+        Session::forget('idUser');
+        Session::forget('nameUser');
+        return redirect('/');
     }
 
 }

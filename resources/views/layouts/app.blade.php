@@ -48,7 +48,7 @@
     @endif
 
     @if ($message = Session::get('peringatan'))
-    <div class="alert alert-warning alert-block">
+    <div class="alert alert-warning alert-block" style="position:fixed;z-index:999999999;width:500px;top:10px;right:10px;">
         <button type="button" class="close" data-dismiss="alert">×</button>
         <strong>{{ $message }}</strong>
     </div>

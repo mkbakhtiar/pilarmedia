@@ -20,11 +20,11 @@ class CekStatus
             $user = \App\UserModel::where('id', Session::get('idUser'))->first();
             if ($user->user_akses == '2') {
                 return redirect('/dashboard');
-            } elseif ($user->user_akses == '1') {
-                return redirect('/admin');
+            } elseif ($user->user_akses == '3') {
+                return redirect('/d-manajer');
             }
         }else{
-            return redirect('/');
+            // return redirect('/');
         }
 
 

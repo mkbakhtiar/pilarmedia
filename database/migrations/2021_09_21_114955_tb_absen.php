@@ -17,8 +17,7 @@ class TbAbsen extends Migration
             $table->increments('id')->unsigned();
             $table->integer('id_karyawan');
             $table->dateTime('date_absen');
-            $table->time('jam_masuk');
-            $table->time('jam_keluar');
+            $table->text('kategori_absen');
             $table->integer('is_invalid');
             $table->text('lat');
             $table->text('lng');

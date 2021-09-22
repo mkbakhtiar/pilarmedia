@@ -18,7 +18,9 @@ class TbIjin extends Migration
             $table->integer('id_karyawan');
             $table->dateTime('date_ijin');
             $table->dateTime('start_ijin');
+            $table->text('alasan');
             $table->integer('is_kategori'); //1 =sakit, 2=cuti
+            $table->integer('is_approval'); //1 =sakit, 2=cuti
             $table->timestamps();
         });
     }
