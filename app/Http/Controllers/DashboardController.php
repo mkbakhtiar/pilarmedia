@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use Session;
 use Illuminate\Support\Facades\Hash;
+use App\Charts\AbsenChart;
 class DashboardController extends Controller
 {
     public function index(){
@@ -46,9 +47,22 @@ class DashboardController extends Controller
     public function manajer(){
         $d = DB::table('tb_absen')->join('tb_user','tb_absen.id_karyawan','=','tb_user.id')->get();
         $ds = \App\Ijin::all();
+
+        $month = array('01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11','12');
+        $total = array();
+        for ($i=0; $i < count($month) ; $i++) {
+            $total[$i] = DB::table('tb_ijin')->whereMonth('start_ijin', $month[$i])->whereYear('start_ijin', date('Y'))->count();
+        }
+
+
+        $usersChart = new AbsenChart;
+        $usersChart->labels(['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11','12']);
+        $usersChart->dataset('Laporan Total Ijin Tahun Ini', 'line', [0,0,0,0,0,0,0,0,0,0,0,0]);
+
         $data = array(
             'data' => $d,
             'pj' => $ds,
+            'userChart' => $usersChart
         );
         return view('main.d_manajer')->with($data);
     }
